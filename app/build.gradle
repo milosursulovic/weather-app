@@ -7,14 +7,16 @@ plugins {
 
 android {
     namespace 'com.example.weather'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.weather"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
+
+        buildConfigField("String", "BASE_URL", BASE_URL)
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -50,12 +52,12 @@ android {
 
 dependencies {
     //hilt
-    implementation "com.google.dagger:hilt-android:2.44.22"
+    implementation "com.google.dagger:hilt-android:2.44.2"
     kapt "com.google.dagger:hilt-compiler:2.44.2"
 
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
