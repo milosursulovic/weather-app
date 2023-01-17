@@ -1,6 +1,6 @@
 package com.example.weather.di
 
-import com.example.weather.BuildConfig
+import com.example.weather.common.Constants
 import com.example.weather.data.remote.WeatherApi
 import dagger.Module
 import dagger.Provides
@@ -17,7 +17,7 @@ object RemoteModule {
     @Singleton
     fun providesWeatherApi(): WeatherApi =
         Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(Constants.API_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
             .create(WeatherApi::class.java)
